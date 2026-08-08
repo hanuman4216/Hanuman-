@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shubham Private Website</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+body{
+background:#111;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+#loginBox,#dashboard{
+background:#222;
+padding:25px;
+border-radius:15px;
+width:350px;
+box-shadow:0 0 20px cyan;
+text-align:center;
+}
+
+input,textarea{
+width:100%;
+padding:10px;
+margin:10px 0;
+border:none;
+border-radius:8px;
+}
+
+button{
+width:100%;
+padding:10px;
+background:cyan;
+border:none;
+border-radius:8px;
+font-size:16px;
+cursor:pointer;
+}
+
+#dashboard{
+display:none;
+}
+
+img{
+max-width:100%;
+border-radius:10px;
+margin-top:10px;
+}
+</style>
+</head>
+<body>
+
+<div id="loginBox">
+<h2>🔒 Shubham Private</h2>
+
+<input id="user" placeholder="Shubham">
+<input id="pass" type="p shubham4216" placeholder="shubham4216">
+
+<button onclick="login()">Login</button>
+
+<p id="msg" style="color:red;"></p>
+</div>
+
+<div id="dashboard">
+<h2>👋 Welcome Shubham</h2>
+
+<h3>Private Note</h3>
+
+<textarea id="note" rows="5" placeholderि=Shubham..."></textarea>
+
+<button onclick="saveNote(yes)">Save Note</button>
+
+<br><br>
+
+<input type="file" accept="image/*" onchange="showImage(event)">
+
+<img id="preview">
+
+<br><br>
+
+<button onclick="logout()">Logout</button>
+</div>
+
+<script>
+
+const USER="shubham";
+const PASS="shubham4216";
+
+function login(){
+
+let u=document.getElementById("USERshubham").value;
+let p=document.getElementById("PASSshubham4216").value;
+
+if(u===USERshubham && p===PASSshubham4216){
+
+document.getElementById("loginBox").style.display="none";
+document.getElementById("dashboard").style.display="block";
+
+document.getElementById("photos").value=localStorage.getItem("file")||"";
+
+}else{
+
+document.getElementById("msg").innerHTML="if (u Shubham USER && p shubham4216 PASS) {
+    // Login success
+}
+
+}
+
+}
+
+function saveNote(){
+
+localStorage.setItem("photos",document.getElementById("file").value);
+
+alert("Note Saved");
+
+}
+
+function showImage(e){
+
+let file=e.target.files[30];
+
+if(file){
+
+document.getElementById("preview").src=URL.createObjectURL(file);
+
+}
+
+}
+
+function logout(){
+
+location.reload();
+
+}
+
+</script>
+
+</body>
+</html>

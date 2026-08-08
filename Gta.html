@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyber Hacker Website</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+html,body{
+width:100%;
+height:100%;
+overflow:hidden;
+background:#000;
+color:#00ffcc;
+}
+
+body{
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+canvas{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1;
+}
+
+.container{
+text-align:center;
+z-index:10;
+}
+
+h1{
+font-size:65px;
+text-shadow:
+0 0 10px cyan,
+0 0 20px cyan,
+0 0 40px cyan;
+animation:glow 2s infinite alternate;
+}
+
+p{
+margin-top:20px;
+font-size:22px;
+color:white;
+}
+
+@keyframes glow{
+
+from{
+text-shadow:
+0 0 10px cyan,
+0 0 20px cyan;
+}
+
+to{
+text-shadow:
+0 0 
+button{
+padding:15px 40px;
+margin-top:30px;
+font-size:20px;
+font-weight:bold;
+background:#00ffff;
+color:#000;
+border:none;
+border-radius:40px;
+cursor:pointer;
+transition:.3s;
+box-shadow:0 0 20px cyan;
+}
+
+button:hover{
+transform:scale(1.1);
+box-shadow:0 0 40px cyan;
+}
+
+#loader{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#000;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:40px;
+font-weight:bold;
+color:#00ffff;
+z-index:9999;
+animation:hideLoader 3s forwards;
+}
+
+@keyframes hideLoader{
+0%,80%{
+opacity:1;
+}
+100%{
+opacity:0;
+visibility:hidden;
+}
+}
+
+.circle{
+position:absolute;
+border-radius:50%;
+background:rgba(0,255,255,.2);
+animation:floatUp linear infinite;
+}
+
+@keyframes floatUp{
+0%{
+transform:translateY(100vh) rotate(0deg);
+}
+100%{
+transform:translateY(-150px) rotate(360deg);
+}
+}
+/* Hacker Matrix Background */
+#matrix{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-2;
+}
+
+/* Glass Effect */
+.container{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+padding:40px;
+border:1px solid rgba(0,255,255,0.3);
+border-radius:20px;
+box-shadow:0 0 30px rgba(0,255,255,0.4);
+}
+
+/* Neon Line */
+.line{
+width:220px;
+height:3px;
+background:cyan;
+margin:20px auto;
+box-shadow:0 0 20px cyan;
+animation:blink 1.5s infinite alternate;
+}
+
+@keyframes blink{
+from{
+opacity:.3;
+}
+to{
+opacity:1;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="loader">Loading...</div>
+
+<canvas id="matrix"></canvas>
+
+<div class="container">
+<h1>CYBER HACKER</h1>
+
+<div class="line"></div>
+
+<p>Welcome To My Futuristic Website</p>
+
+<button onclick="enterSite()">ENTER</button>
+
+</div>
+
+<script>
+  // ===== Matrix Animation =====
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resizeCanvas();
+
+const chars = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&@";
+const fontSize = 16;
+let columns = Math.floor(canvas.width / fontSize);
+let drops = new Array(columns).fill(1);
+
+function drawMatrix() {
+    ctx.fillStyle = "rgba(0,0,0,0.08)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "#00ff66";
+    ctx.font = fontSize + "px monospace";
+
+    for (let i = 0; i < drops.length; i++) {
+        const text = chars[Math.floor(Math.random() * chars.length)];
+
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.98) {
+            drops[i] = 0;
+        }
+
+        drops[i]++;
+    }
+
+    requestAnimationFrame(drawMatrix);
+}
+
+drawMatrix();
+
+window.addEventListener("resize", () => {
+    resizeCanvas();
+    columns = Math.floor(canvas.width / fontSize);
+    drops = new Array(columns).fill(1);
+});
+// ===== Floating Particles =====
+for(let i=0;i<40;i++){
+
+const circle=document.createElement("div");
+
+circle.className="circle";
+
+const size=Math.random()*30+10;
+
+circle.style.width=size+"px";
+circle.style.height=size+"px";
+
+circle.style.left=Math.random()*100+"%";
+
+circle.style.animationDuration=(Math.random()*10+8)+"s";
+circle.style.animationDelay=Math.random()*5+"s";
+
+document.body.appendChild(circle);
+
+}
+
+// ===== Mouse Glow =====
+
+const glow=document.createElement("div");
+
+glow.style.position="fixed";
+glow.style.width="25px";
+glow.style.height="25px";
+glow.style.borderRadius="50%";
+glow.style.background="rgba(0,255,255,.5)";
+glow.style.boxShadow="0 0 40px cyan";
+glow.style.pointerEvents="none";
+glow.style.transform="translate(-50%,-50%)";
+glow.style.zIndex="9999";
+
+document.body.appendChild(glow);
+
+document.addEventListener("mousemove",function(e){
+
+glow.style.left=e.clientX+"px";
+glow.style.top=e.clientY+"px";
+
+});
+// ===== ENTER Button =====
+function enterSite(){
+    alert("🚀 Welcome to Cyber Hacker Website!");
+}
+
+// ===== Click Glow Effect =====
+document.addEventListener("click", function(e){
+
+    const spark = document.createElement("div");
+
+    spark.style.position = "fixed";
+    spark.style.left = e.clientX + "px";
+    spark.style.top = e.clientY + "px";
+    spark.style.width = "12px";
+    spark.style.height = "12px";
+    spark.style.borderRadius = "50%";
+    spark.style.background = "#00ffff";
+    spark.style.boxShadow = "0 0 30px cyan";
+    spark.style.pointerEvents = "none";
+    spark.style.transition = "all 0.8s ease";
+    spark.style.zIndex = "9999";
+
+    document.body.appendChild(spark);
+
+    setTimeout(()=>{
+        spark.style.transform = "scale(8)";
+        spark.style.opacity = "0";
+    },10);
+
+    setTimeout(()=>{
+        spark.remove();
+    },800);
+
+});
+
+// ===== Console Message =====
+console.log("Cyber Hacker Website Loaded...");
+// ===== Digital Clock =====
+const clock = document.createElement("div");
+
+clock.style.position = "fixed";
+clock.style.top = "20px";
+clock.style.right = "20px";
+clock.style.color = "#00ffff";
+clock.style.fontSize = "22px";
+clock.style.fontFamily = "monospace";
+clock.style.textShadow = "0 0 10px cyan";
+clock.style.zIndex = "9999";
+
+document.body.appendChild(clock);
+
+function updateClock(){
+    const now = new Date();
+
+    clock.innerHTML = now.toLocaleTimeString();
+}
+
+setInterval(updateClock,1000);
+updateClock();
+
+
+// ===== Typing Effect =====
+const text = "ACCESS GRANTED...";
+const p = document.querySelector(".container p");
+
+p.innerHTML = "";
+
+let i = 0;
+
+function typing(){
+
+    if(i < text.length){
+
+        p.innerHTML += text.charAt(i);
+
+        i++;
+
+        setTimeout(typing,100);
+
+    }
+
+}
+
+typing();
+// ===== Keyboard Effect =====
+document.addEventListener("keydown", function(e){
+
+    const key = document.createElement("div");
+
+    key.innerHTML = e.key.toUpperCase();
+
+    key.style.position = "fixed";
+    key.style.left = Math.random()*window.innerWidth + "px";
+    key.style.top = Math.random()*window.innerHeight + "px";
+    key.style.color = "#00ffff";
+    key.style.fontSize = "28px";
+    key.style.fontWeight = "bold";
+    key.style.textShadow = "0 0 20px cyan";
+    key.style.pointerEvents = "none";
+    key.style.transition = "all 1.2s ease";
+    key.style.zIndex = "9999";
+
+    document.body.appendChild(key);
+
+    setTimeout(()=>{
+        key.style.transform = "translateY(-120px) scale(2)";
+        key.style.opacity = "0";
+    },50);
+
+    setTimeout(()=>{
+        key.remove();
+    },1200);
+
+});
+
+// ===== Neon Border Animation =====
+setInterval(() => {
+
+    document.querySelector(".container").style.boxShadow =
+        `0 0 ${20 + Math.random()*30}px cyan`;
+
+}, 300);
+// ===== Screen Flash Effect =====
+function flashScreen(){
+
+    const flash = document.createElement("div");
+
+    flash.style.position = "fixed";
+    flash.style.top = "0";
+    flash.style.left = "0";
+    flash.style.width = "100%";
+    flash.style.height = "100%";
+    flash.style.background = "rgba(0,255,255,0.15)";
+    flash.style.pointerEvents = "none";
+    flash.style.zIndex = "9998";
+
+    document.body.appendChild(flash);
+
+    setTimeout(()=>{
+        flash.remove();
+    },150);
+
+}
+
+// प्रत्येक 10 सेकंदांनी Flash
+setInterval(flashScreen,10000);
+
+// ===== Random Hacker Messages =====
+const messages = [
+    "ACCESS GRANTED",
+    "SYSTEM ONLINE",
+    "SECURE CONNECTION",
+    "WELCOME USER",
+    "CYBER MODE ACTIVE"
+];
+
+setInterval(()=>{
+    const msg = messages[Math.floor(Math.random()*messages.length)];
+
+    console.log(msg);
+
+},5000);
+// ===== Website Ready =====
+console.log("🚀 Cyber Hacker Website Ready!");
+
+</script>
+
+</body>
+</html>

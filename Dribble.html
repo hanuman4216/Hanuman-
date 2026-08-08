@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AI Hotel Dashboard</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+}
+
+.container{
+    display:flex;
+    min-height:100vh;
+}
+
+/* Sidebar */
+.sidebar{
+    width:250px;
+    background:#111827;
+    padding:25px;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#38bdf8;
+    margin-bottom:40px;
+}
+
+.menu p{
+    padding:15px;
+    margin:10px 0;
+    border-radius:12px;
+    cursor:pointer;
+}
+
+.menu p:hover{
+    background:#1e293b;
+}
+
+/* Main */
+.main{
+    flex:1;
+    padding:30px;
+}
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.header h1{
+    font-size:35px;
+}
+
+button{
+    background:#38bdf8;
+    border:none;
+    padding:12px 25px;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+
+/* Cards */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    margin-top:30px;
+}
+
+.card{
+    background:rgba(255,255,255,0.08);
+    padding:25px;
+    border-radius:20px;
+    backdrop-filter:blur(10px);
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card h2{
+    color:#38bdf8;
+}
+
+
+/* Rooms */
+
+.rooms{
+    margin-top:35px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.room{
+    background:#1e293b;
+    padding:20px;
+    border-radius:20px;
+}
+
+.available{
+    color:#22c55e;
+}
+
+.booked{
+    color:#ef4444;
+}
+
+
+/* Animation */
+
+.fade{
+    animation:show 1s;
+}
+
+@keyframes show{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+<div class="sidebar">
+
+<div class="logo">
+🏨 StayAI
+</div>
+
+<div class="menu">
+<p>🏠 Dashboard</p>
+<p>🛏 Rooms</p>
+<p>👥 Customers</p>
+<p>📅 Booking</p>
+<p>💰 Revenue</p>
+<p>⚙ Settings</p>
+</div>
+
+</div>
+
+
+
+<div class="main fade">
+
+
+<div class="header">
+
+<h1>
+AI Hotel Dashboard
+</h1>
+
+<button onclick="message()">
++ New Booking
+</button>
+
+</div>
+
+
+
+<div class="cards">
+
+<div class="card">
+<h2>120</h2>
+<p>Total Rooms</p>
+</div>
+
+
+<div class="card">
+<h2>85</h2>
+<p>Available</p>
+</div>
+
+
+<div class="card">
+<h2>35</h2>
+<p>Booked</p>
+</div>
+
+
+<div class="card">
+<h2>₹2.5L</h2>
+<p>Revenue</p>
+</div>
+
+</div>
+
+
+
+<h1 style="margin-top:40px;">
+Room Status
+</h1>
+
+
+<div class="rooms">
+
+
+<div class="room">
+<h2>Room 101</h2>
+<p class="available">
+● Available
+</p>
+</div>
+
+
+<div class="room">
+<h2>Room 202</h2>
+<p class="booked">
+● Booked
+</p>
+</div>
+
+
+<div class="room">
+<h2>Room 303</h2>
+<p class="available">
+● Available
+</p>
+</div>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<script>
+
+function message(){
+alert("New Booking System Opened 🚀");
+}
+
+</scrip>
+
+</body>
+</html>
+A futuristic AI-powered hotel management dashboard UI design,
+Dribbble style, premium glassmorphism interface,
+dark luxury theme with neon blue accents,
+modern admin panel layout,
+3D hotel room cards,
+smart booking management system,
+AI assistant chatbot widget,
+revenue analytics charts,
+customer profile cards,
+room availability status,
+clean typography,
+minimal professional UX design,
+smooth gradients,
+high-end SaaS dashboard,
+Figma UI design,
+ultra detailed,
+4K resolution,
+award winning web app design
+Create a futuristic luxury hotel management system interface,
+deep AI graphics style, cinematic 3D visualization,
+premium dark glass dashboard,
+holographic hotel building model,
+AI assistant hologram,
+floating booking panels,
+3D room cards,
+neon blue and purple lighting,
+realistic reflections,
+advanced technology atmosphere,
+smart hotel automation,
+high-end UI/UX design,
+Dribbble inspiration,
+Figma concept art,
+ultra realistic,
+8K resolution,
+professional software dashboard design
+Build a complete AI-powered Hotel Management mobile application.
+
+App features:
+- Secure Admin Login
+- Hotel Dashboard
+- Room booking system
+- Customer registration
+- Check-in / Check-out management
+- Room availability tracking
+- Online payment module
+- Invoice generation
+- Staff management
+- Notifications
+- AI chatbot assistant
+
+Design:
+Modern premium UI,
+dark glassmorphism theme,
+smooth animations,
+mobile responsive layout,
+professional hotel SaaS application design.
+
+Technology:
+HTML, CSS, JavaScript,
+clean component structure,
+ready for future database integration.
+Create an advanced AI chatbot kit for a hotel management system.
+
+Features:
+- AI customer support chatbot
+- Room availability checking
+- Booking assistance
+- Customer questions answering
+- Check-in and check-out guidance
+- Payment help
+- Hotel services information
+- Admin support assistant
+
+UI Design:
+Modern floating chat widget,
+premium glassmorphism design,
+dark luxury theme,
+smooth typing animation,
+AI avatar,
+voice assistant option,
+mobile responsive layout.
+
+Technology:
+HTML, CSS, JavaScript,
+API ready structure,
+clean and professional chatbot interface.
