@@ -1,0 +1,22 @@
+#tabs{
+    background-color: #0f8735;
+    width: 30%;
+    height: 90px;
+    text-align: center;
+    font-size: x-large;
+    padding-top: 40px;
+    margin-right: auto;
+}
+#header{
+    background-color: black;
+    
+}
+#clss{
+    background-color: #ebf9ef;
+    width: 30%;
+    height: 90px;
+    text-align: center;
+    font-size: x-large;
+    padding-top: 40px;
+    margin-right: auto;
+    color: black;
